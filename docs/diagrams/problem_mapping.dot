@@ -1,7 +1,7 @@
 
 digraph M {
-  rankdir=LR; nodesep=0.35; ranksep=0.6;
-  node [shape=box style="rounded,filled" fontname="Helvetica" fontsize=11 fillcolor="#eef3fb" color="#4a6fa5"];
+  rankdir=TB; nodesep=0.25; ranksep=0.45; newrank=true;
+  node [shape=box style="rounded,filled" fontname="Helvetica" fontsize=11 fillcolor="#eef3fb" color="#4a6fa5" width=2.4];
   edge [fontname="Helvetica" fontsize=10 color="#555555"];
   subgraph cluster_r { label="Real-world problem"; fontname="Helvetica-Bold"; color="#bbbbbb";
     r1 [label="Source program P\n(C / Python / Java)"];
@@ -11,8 +11,7 @@ digraph M {
   subgraph cluster_f { label="Computational formulation"; fontname="Helvetica-Bold"; color="#bbbbbb";
     f1 [label="Turing machine M_P\n(any program compiles to one)"];
     f2 [label="Tape contents w"];
-    f3 [label="Language\nHALT = { <M, w> : M halts on w }"];
-    f4 [label="LOOP = complement of HALT"];
+    f3 [label="HALT = { <M, w> : M halts on w }\nLOOP = complement of HALT"];
   }
   subgraph cluster_a { label="What theory says"; fontname="Helvetica-Bold"; color="#bbbbbb";
     a1 [label="HALT is recognisable\n(run M, wait for halt)" fillcolor="#e6f4ea" color="#3a7d44"];
@@ -21,11 +20,16 @@ digraph M {
   }
   subgraph cluster_e { label="Engineering answer"; fontname="Helvetica-Bold"; color="#bbbbbb";
     e1 [label="Restrict the program class\n(ranking functions, recurrent sets)"];
-    e2 [label="Restrict the machine\n(finite k-bit state -> cycle detection)"];
+    e2 [label="Restrict the machine\n(finite k-bit state: cycle detection)"];
     e3 [label="Approximate\n(timeouts, watchdogs: may be wrong)"];
-    e4 [label="Three-valued verdict\nHALTS / LOOPS / UNKNOWN" fillcolor="#fff4d6" color="#b08900"];
   }
-  r1 -> f1; r2 -> f2; r3 -> f3; f1 -> f3; f2 -> f3; f3 -> f4 [style=dashed];
-  f3 -> a1; f3 -> a2; f4 -> a3;
-  a2 -> e1; a2 -> e2; a2 -> e3; e1 -> e4; e2 -> e4; e3 -> e4;
+  e4 [label="Three-valued verdict:  HALTS / LOOPS / UNKNOWN" fillcolor="#fff4d6" color="#b08900" width=5];
+  { rank=same; r1; r2; r3; }
+  { rank=same; f1; f2; f3; }
+  { rank=same; a1; a2; a3; }
+  { rank=same; e1; e2; e3; }
+  r1 -> f1; r2 -> f2; r3 -> f3;
+  f3 -> a1; f3 -> a2; f3 -> a3;
+  a2 -> e1; a2 -> e2; a2 -> e3;
+  e1 -> e4; e2 -> e4; e3 -> e4;
 }
