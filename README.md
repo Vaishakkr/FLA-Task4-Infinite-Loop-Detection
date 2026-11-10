@@ -94,7 +94,7 @@ hardware it *halts*, because 128 × 2 overflows to 0. The same thing happens wit
 python -m loopguard.cli all                  # theory demo + benchmark
 python -m loopguard.cli explain gcd_zero_bug # one program, every stage explained
 python -m loopguard.cli my_program.py        # analyse your own MiniLang file
-python -m pytest -q                          # 23 tests, incl. a soundness sweep over 3 000 programs
+python -m pytest -q                          # 23 tests, incl. a soundness sweep over 2 400 programs
 python tools/make_diagrams.py                # rebuild diagrams (needs Graphviz)
 ```
 
