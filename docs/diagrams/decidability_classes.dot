@@ -1,0 +1,17 @@
+
+digraph C {
+  node [fontname="Helvetica" fontsize=11]; compound=true;
+  subgraph cluster_all { label="All languages"; fontname="Helvetica-Bold"; style=rounded; color="#999999";
+    subgraph cluster_re { label="Turing-recognisable (RE)"; style="rounded,filled"; fillcolor="#eef3fb"; color="#4a6fa5";
+      subgraph cluster_dec { label="Decidable"; style="rounded,filled"; fillcolor="#e6f4ea"; color="#3a7d44";
+        d1 [label="A_DFA, EQ_DFA\nloops of a finite-state\nprogram (k-bit)" shape=plaintext];
+        d2 [label="A_CFG, E_CFG" shape=plaintext];
+      }
+      re1 [label="HALT_TM\n'P halts on w'" shape=plaintext];
+    }
+    subgraph cluster_co { label="co-recognisable only"; style="rounded,filled"; fillcolor="#fbe9e7"; color="#b3412f";
+      co1 [label="LOOP = complement of HALT_TM\n'P runs forever on w'" shape=plaintext];
+    }
+    n1 [label="neither: TOTAL_TM ('P halts on every input'),\nEQ_TM (program equivalence)" shape=plaintext];
+  }
+}

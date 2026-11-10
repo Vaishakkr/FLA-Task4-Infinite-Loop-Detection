@@ -1,0 +1,17 @@
+
+digraph P {
+  rankdir=TB; node [shape=box style="rounded,filled" fontname="Helvetica" fontsize=11 fillcolor="#f4f6f9"];
+  edge [fontname="Helvetica" fontsize=10];
+  src [label="MiniLang program + input" shape=note fillcolor="#ffffff"];
+  parse [label="Parse (Python ast, restricted subset)\ncompile to register-machine code"];
+  st [label="Stage 1  Static analysis\nconstant guards, linear ranking function,\nrecurrent condition, != with constant step"];
+  dyn [label="Stage 2  Run with configuration memory\nhalt seen -> HALTS\nrepeated (pc, vars) -> LOOPS"];
+  fin [label="Stage 3  k-bit finite-state model\n(exact for k-bit hardware)"];
+  h [label="HALTS + proof" fillcolor="#e6f4ea"];
+  l [label="LOOPS + proof" fillcolor="#fbe9e7"];
+  u [label="UNKNOWN\n(honest: no proof found)" fillcolor="#fff4d6"];
+  src -> parse -> st;
+  st -> h [label="ranking fn"]; st -> l [label="recurrent"]; st -> dyn [label="unknown"];
+  dyn -> h [label="halted"]; dyn -> l [label="cycle"]; dyn -> u [label="budget"];
+  dyn -> fin [style=dashed label="reported alongside"];
+}

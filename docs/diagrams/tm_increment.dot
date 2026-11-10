@@ -1,0 +1,12 @@
+digraph "binary increment" {
+rankdir=LR;
+node [shape=circle fontname="Helvetica" fontsize=12];
+edge [fontname="Helvetica" fontsize=10];
+__s [shape=point];
+"done" [shape=doublecircle];
+__s -> "right";
+"right" -> "right" [label="0/0,R\n1/1,R"];
+"right" -> "carry" [label="_/_,L"];
+"carry" -> "carry" [label="1/0,L"];
+"carry" -> "done" [label="0/1,S\n_/1,S"];
+}

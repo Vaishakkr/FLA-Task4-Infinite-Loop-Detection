@@ -1,0 +1,10 @@
+digraph "ping-pong" {
+rankdir=LR;
+node [shape=circle fontname="Helvetica" fontsize=12];
+edge [fontname="Helvetica" fontsize=10];
+__s [shape=point];
+"halt" [shape=doublecircle];
+__s -> "a";
+"a" -> "b" [label="0/0,R\n_/_,R"];
+"b" -> "a" [label="0/0,L\n_/_,L"];
+}
