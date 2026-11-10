@@ -1,4 +1,4 @@
-"""Validation suite (owner: Deepak V F).
+"""Validation suite.
 
 Main property: LoopGuard is SOUND. Whenever it says HALTS or LOOPS, that
 answer is right. UNKNOWN is allowed, wrong answers are not.

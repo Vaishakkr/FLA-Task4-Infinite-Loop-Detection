@@ -1,7 +1,7 @@
 # LoopGuard: Infinite-Loop Detection and the Limits Set by Turing Machines
 
-**Course:** 21CSC301T Formal Language and Automata, CLA-2, Assessment Task 4 (team)
-**Team:** K R Vaishak (RA2411026050018) and Deepak V F (RA2411026050015), B.Tech AIML 'A', III year
+**Course:** 21CSC301T Formal Language and Automata, CLA-2, Assessment Task 4
+**Student:** K R Vaishak (RA2411026050018), B.Tech AIML 'A', III year
 **Faculty:** Dr. C. Gunasundari, SRM IST Tiruchirappalli
 **Problem chosen:** (a) infinite-loop detection in software
 
@@ -124,5 +124,3 @@ loopguard/cli.py        terminal demo
 tests/                  validation suite
 docs/diagrams/          problem mapping, decidability classes, pipeline, TM diagrams
 ```
-
-See [CONTRIBUTIONS.md](CONTRIBUTIONS.md) for who did what.
